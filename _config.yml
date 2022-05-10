@@ -2,5 +2,5 @@ theme: jekyll-theme-cayman
 gems:
   - jekyll-octicons
 
-title: Basics on long-read sequencing QC (Nanopore and PacBio)
+title: Basics on long-read sequencing QC
 description: 
