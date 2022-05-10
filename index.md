@@ -1,4 +1,4 @@
-### Basics on long-read sequencing QC (Nanopore and PacBio)
+# Basics on long-read sequencing QC (Nanopore and PacBio)
 
 ## Welcome! 
 This page cotains a tutorial for basic QC .The material was initially created for the Computational Sessions of the [2022 JAX Long Read Sequencing Workshop ](https://www.jax.org/education-and-learning/education-calendar/2022/may/long-read-sequencing-workshop) but I will try to keep it updated with new methods.
