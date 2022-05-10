@@ -1,7 +1,26 @@
-# Basics on long-read sequencing QC (Nanopore and PacBio)
+# Welcome! 
+This page cotains tutorial for basic Quality Control (QC) of Long-Read sequencing data, primarily data produced by Oxford Nanopore Tenchnologies (ONT) and Pacific Biosciences (PacBio). The material was initially created for the Computational Sessions of the [2022 JAX Long Read Sequencing Workshop ](https://www.jax.org/education-and-learning/education-calendar/2022/may/long-read-sequencing-workshop) but I will try to keep it updated with new methods/strategies.
 
-## Welcome! 
-This page cotains a tutorial for basic QC .The material was initially created for the Computational Sessions of the [2022 JAX Long Read Sequencing Workshop ](https://www.jax.org/education-and-learning/education-calendar/2022/may/long-read-sequencing-workshop) but I will try to keep it updated with new methods.
+## Tutorial Set Up
+
+# Unix 
+Unix is the standard operating system used in scientific research. In fact, most up-to-date tools in bioiformatics, including the ones we are going to use in this tutorial, are run in Unix. In the context of this tutorial (and Bioiformatics in general) there are few aspects of Unix to highligth: 
+
+- Unix is largely command line driven. 
+- Unix is used by many of the most powerful computers at bioinformatics centres and also on many desktops and laptops (MacOS is largely UNIX compatible).
+- Unix is free. 
+- There are many distributions of Unix such as Ubuntu, RedHat, Fedora, etc. These are all Unix, but they bundle up extra software in a different way or combinations. 
+
+There are seveal *really good* tutorials that introduce Unix and cover some of the basics that will allow you to be more comfortable with the command-line, here some of them:
+
+https://swcarpentry.github.io/shell-novice/
+https://bioinformaticsworkbook.org/Appendix/Unix/unix-basics-1.html#gsc.tab=0
+https://www.hadriengourle.com/tutorials/command_line/
+
+# I don't have Unix, what do I do?
+In case you don’t work under Linux already, e.g. you have a Windows laptop, or don’t want to install all the tools yourself this page gives detailed instructions on how to set up a tutorial environment on any computer using VirtualBox:
+
+https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview
 
 
 
