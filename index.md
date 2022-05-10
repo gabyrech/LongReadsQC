@@ -3,7 +3,7 @@ This page cotains tutorial for basic Quality Control (QC) of Long-Read sequencin
 
 ## Tutorial Set Up
 
-# Unix 
+### Unix 
 Unix is the standard operating system used in scientific research. In fact, most up-to-date tools in bioiformatics, including the ones we are going to use in this tutorial, are run in Unix. In the context of this tutorial (and Bioiformatics in general) there are few aspects of Unix to highligth: 
 
 - Unix is largely command line driven. 
@@ -11,16 +11,24 @@ Unix is the standard operating system used in scientific research. In fact, most
 - Unix is free. 
 - There are many distributions of Unix such as Ubuntu, RedHat, Fedora, etc. These are all Unix, but they bundle up extra software in a different way or combinations. 
 
-There are seveal *really good* tutorials that introduce Unix and cover some of the basics that will allow you to be more comfortable with the command-line, here some of them:
+There are seveal **really good** free on-line tutorials that introduce Unix and cover some of the basics that will allow you to be more comfortable with the command-line, here some of them:
 
-https://swcarpentry.github.io/shell-novice/
-https://bioinformaticsworkbook.org/Appendix/Unix/unix-basics-1.html#gsc.tab=0
-https://www.hadriengourle.com/tutorials/command_line/
+[Software Carpentry Foundation Shell Novice Course](https://swcarpentry.github.io/shell-novice/)
+[Bioinformatics Workbook](https://bioinformaticsworkbook.org/Appendix/Unix/unix-basics-1.html#gsc.tab=0)
+[HadrienG Tutorials](https://www.hadriengourle.com/tutorials/command_line/)
 
-# I don't have Unix, what do I do?
+### I don't have Unix, what do I do?
 In case you don’t work under Linux already, e.g. you have a Windows laptop, or don’t want to install all the tools yourself this page gives detailed instructions on how to set up a tutorial environment on any computer using VirtualBox:
 
-https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview
+[Install Ubuntu using a VM](https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview) 
+
+### Tools
+Tools needed for this tutorial and the instructions for installing them are:
+- **SeqKik**: [https://bioinf.shenwei.me/seqkit/](https://bioinf.shenwei.me/seqkit/)
+
+
+### Data Set
+
 
 
 
