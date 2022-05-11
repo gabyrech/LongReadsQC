@@ -235,7 +235,8 @@ The command we can use for sumarizing sequence stats is, again: **stats**:
 Few things to highligth regarding **SeqFu** vs. **SeqKit**:
 1. **SeqFu** parameter _--nice_ makes stats looking much better than the _--tabular_ in **SeqKit**.
 2. **SeqFu** also calculates N75 and N90, which in some cases migth be useful. 
-3. **SeqFu** does not provide Quality stats (e.g. Q20% / Q30%) 
+3. **SeqFu** does not provide Quality stats (e.g. Q20% / Q30%). In theory, **SeqFu** provides another command [_qual_](https://telatin.github.io/seqfu2/tools/qual.html) to sumarize quality scores, but it did not work for me.
+4. **SeqFu** provides another interesting statistics for read length called **auN**. auN is probably more interesting in the context of genome assembly. You can learn more about this measure [here](https://lh3.github.io/2020/04/08/a-new-metric-on-assembly-contiguity).
 
 ------------------
 ## FORMAT
