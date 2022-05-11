@@ -24,7 +24,7 @@ In case you don’t work under any Unix distribution already, e.g. you have a Wi
 ### Tools
 Tools needed for this tutorial and the instructions for installing them are:
 
-- **SeqKik**: [https://bioinf.shenwei.me/seqkit/](https://bioinf.shenwei.me/seqkit/)
+- **SeqKit**: [https://bioinf.shenwei.me/seqkit/](https://bioinf.shenwei.me/seqkit/)
 - **SeqFu**: [https://telatin.github.io/seqfu2/](https://telatin.github.io/seqfu2/)
 - **NanoPack**:[https://github.com/wdecoster/nanopack](https://github.com/wdecoster/nanopack)
 - **pycoQC**: [https://a-slide.github.io/pycoQC/](https://a-slide.github.io/pycoQC/)
@@ -81,7 +81,7 @@ $ fastq-dump --gzip $(<SraAccList.txt)
 
 ## Quick QC overview using SeqKit
 
-**SeqKit** is an easy-to-install and easy-to-use toolkit for FASTA/Q file manipulation. 
+[**SeqKit**](https://bioinf.shenwei.me/seqkit/) is an easy-to-install and easy-to-use toolkit for FASTA/Q file manipulation. 
 Contain more than 37 commands [usages and examples](https://bioinf.shenwei.me/seqkit/#subcommands)
 
 
@@ -151,7 +151,7 @@ ONTLIGnoFrag.fastq.gz  PacBioCLR.fastq.gz  PacBioRSII.fastq.gz
 ```
 You can run:
 
-```markdown
+```
 /full/path/to/data/sampleData$ seqkit stats --all --basename --tabular *
 file	format	type	num_seqs	sum_len	min_len	avg_len	max_len	Q1	Q2	Q3	sum_gap	N50	Q20(%)	Q30(%)
 ONTLIG.fastq.gz	FASTQ	DNA	10000	116811938	112	11681.2	122683	3530.0	5780.0	15452.0	0	22534	27.79	0.00
@@ -165,7 +165,7 @@ PacBioRSII.fastq.gz	FASTQ	DNA	10000	170749124	6	17074.9	57233	7802.0	17318.5	250
 
 **_seqkit stats --all_** command will provide the following information for each fastq file:
 
-```markdown
+```
 file: File name
 format: File format Fastq/Fasta
 type: Moleculte type: DNA/RNA/Protein
@@ -182,6 +182,60 @@ N50: Length of the shortest sequence for which longer and equal length sequences
 Q20(%): Percentage of reads with average Quality Phred Score grater or equal to 20. 
 Q30(%): Percentage of reads with average Quality Phred Score grater or equal to 30. 
 ```
+
+------------------
+
+## Quick QC overview using SeqFu
+
+[**SeqFu**](https://telatin.github.io/seqfu2/) is another general-purpose program to manipulate and parse information from FASTA/FASTQ files. In many ways is similar to SeqKit, but SeqFu author's claim their tool is four times faster than SeqKit on datasets with large sequences ([Telatin et al 2021](https://www.mdpi.com/2306-5354/8/5/59/htm)).
+
+```markdown
+$ seqfu
+SeqFu - Sequence Fastx Utilities
+version: 1.10.0
+
+  · count [cnt]         : count FASTA/FASTQ reads, pair-end aware
+  · deinterleave [dei]  : deinterleave FASTQ
+  · derep [der]         : feature-rich dereplication of FASTA/FASTQ files
+  · interleave [ilv]    : interleave FASTQ pair ends
+  · lanes [mrl]         : merge Illumina lanes
+  · list [lst]          : print sequences from a list of names
+  · metadata [met]      : print a table of FASTQ reads (mapping files)
+  · rotate [rot]        : rotate a sequence with a new start position
+  · sort [srt]          : sort sequences by size (uniques)
+  · stats [st]          : statistics on sequence lengths
+
+  · cat                 : concatenate FASTA/FASTQ files
+  · grep                : select sequences with patterns
+  · head                : print first sequences
+  · rc                  : reverse complement strings or files
+  · tab                 : tabulate reads to TSV (and viceversa)
+  · tail                : view last sequences
+  · view                : view sequences with colored quality and oligo matches
+
+Type 'seqfu version' or 'seqfu cite' to print the version and paper, respectively.
+Add --help after each command to print its usage.
+```
+
+The command we can use for sumarizing sequence stats is, again: **stats**:
+
+```markdown
+/full/path/to/data/sampleData$ seqfu stats --nice --basename *
+┌──────────────┬───────┬───────────┬─────────┬───────┬───────┬───────┬───────────┬──────┬────────┐
+│ File         │ #Seq  │ Total bp  │ Avg     │ N50   │ N75   │ N90   │ auN       │ Min  │ Max    │
+├──────────────┼───────┼───────────┼─────────┼───────┼───────┼───────┼───────────┼──────┼────────┤
+│ ONTLIG       │ 10000 │ 116811938 │ 11681.2 │ 22534 │ 10980 │ 3602  │ 26051.972 │ 112  │ 122683 │
+│ ONTLIGnoFrag │ 10000 │ 101400610 │ 10140.1 │ 47119 │ 20806 │ 5513  │ 52720.370 │ 136  │ 248649 │
+│ ONTRapid     │ 10000 │ 93959361  │ 9395.9  │ 20663 │ 10055 │ 4590  │ 30500.710 │ 95   │ 206567 │
+│ PacBioCLR    │ 10000 │ 190168507 │ 19016.9 │ 33064 │ 20675 │ 11360 │ 33436.589 │ 50   │ 103956 │
+│ PacBioHiFi   │ 10000 │ 129214761 │ 12921.5 │ 12947 │ 12346 │ 11916 │ 4181.999  │ 1473 │ 18862  │
+│ PacBioRSII   │ 10000 │ 170749124 │ 17074.9 │ 24059 │ 17718 │ 12266 │ 21843.122 │ 6    │ 57233  │
+└──────────────┴───────┴───────────┴─────────┴───────┴───────┴───────┴───────────┴──────┴────────┘
+```
+Few things to highligth regarding **SeqFu** vs. **SeqKit**:
+1. **SeqFu** parameter _--nice_ makes stats looking much better than the _--tabular_ in **SeqKit**.
+2. **SeqFu** also calculates N75 and N90, which in some cases migth be useful. 
+3. **SeqFu** does not provide Quality stats (e.g. Q20% / Q30%) 
 
 ------------------
 ## FORMAT
