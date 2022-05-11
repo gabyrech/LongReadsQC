@@ -161,8 +161,27 @@ PacBioCLR.fastq.gz	FASTQ	DNA	10000	190168507	50	19016.9	103956	4615.0	14264.5	29
 PacBioHiFi.fastq.gz	FASTQ	DNA	10000	129214761	1473	12921.5	18862	12292.5	12880.0	13535.5	0	12947	98.40	96.19
 PacBioRSII.fastq.gz	FASTQ	DNA	10000	170749124	6	17074.9	57233	7802.0	17318.5	25082.5	0	24059	0.00	0.00
 ```
-Note: In my command I use the '*' aterisk (also called star) character insthead of the full file names. The asterisk is wildcard character, which is replaced by any number of characters in a filename. In this way, I am telling SeqKit to parse all files in that directory, instead of typing all file names. 
+**Note**: In my command I use the '*' aterisk (also called star) character insthead of the full file names. The asterisk is wildcard character, which is replaced by any number of characters in a filename. In this way, I am telling SeqKit to parse all files in that directory, instead of typing all file names. 
 
+**_seqkit stats --all_** command will provide the following information for each fastq file:
+
+```markdown
+file: File name
+format: File format Fastq/Fasta
+type: Moleculte type: DNA/RNA/Protein
+num_seqs: Total number of sequences (reads in the case of fastq)
+sum_len: Total number of bases in the file
+min_len: Shortest sequence in file
+avg_len: Average sequence length
+max_len: Largest sequence in file
+Q1: Read length first quartile
+Q2: Read length second quartile
+Q3: Read length third quartile
+sum_gap: Total number of gaps in the sequence file
+N50: Length of the shortest sequence for which longer and equal length sequences cover at least 50% of total bases in file. 
+Q20(%): Percentage of reads with average Quality Phred Score grater or equal to 20. 
+Q30(%): Percentage of reads with average Quality Phred Score grater or equal to 30. 
+```
 
 ------------------
 ## FORMAT
