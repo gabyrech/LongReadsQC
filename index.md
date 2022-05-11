@@ -1,7 +1,6 @@
 # Basic long-read sequencing QC 
 
-## Welcome! 
-This page cotains tutorial for basic Quality Control (QC) of Long-Read sequencing data, primarily data produced by Oxford Nanopore Tenchnologies (**ONT**) and Pacific Biosciences (**PacBio**). The material was initially created for the Computational Sessions of the [2022 JAX Long Read Sequencing Workshop ](https://www.jax.org/education-and-learning/education-calendar/2022/may/long-read-sequencing-workshop) but I will try to keep it updated with new methods/strategies.
+This page cotains a tutorial for basic Quality Control (QC) of Long-Read sequencing data, mainly oriented to data produced by Oxford Nanopore Tenchnologies (**ONT**) and Pacific Biosciences (**PacBio**). The material was initially created for the Computational Sessions of the [2022 JAX Long Read Sequencing Workshop ](https://www.jax.org/education-and-learning/education-calendar/2022/may/long-read-sequencing-workshop) but I will try to keep it updated with new methods/strategies.
 
 ## Tutorial Set Up
 
@@ -35,7 +34,7 @@ Tools needed for this tutorial and the instructions for installing them are:
 ### Data Set
 For this tutorial we will use data published by Tvedte *et al.* 2021:
 
-> Eric S Tvedte, Mark Gasser, Benjamin C Sparklin, Jane Michalski, Carl E Hjelmen, J Spencer Johnston, Xuechu Zhao, Robin Bromley, Luke J Tallon, Lisa Sadzewicz, David A Rasko, Julie C Dunning Hotopp, Comparison of long-read sequencing technologies in interrogating bacteria and fly genomes, G3 Genes|Genomes|Genetics, Volume 11, Issue 6, June 2021, jkab083, https://doi.org/10.1093/g3journal/jkab083
+> Eric S Tvedte, Mark Gasser, Benjamin C Sparklin, Jane Michalski, Carl E Hjelmen, J Spencer Johnston, Xuechu Zhao, Robin Bromley, Luke J Tallon, Lisa Sadzewicz, David A Rasko, Julie C Dunning Hotopp, *Comparison of long-read sequencing technologies in interrogating bacteria and fly genomes*, **G3**,11, 6, 2021, https://doi.org/10.1093/g3journal/jkab083.
 
 In this work, authors performed whole-genome sequencing of the bacteria *Escherichia coli* using three different **PacBio** protocols (*Sequel II CLR, Sequel II HiFi, RS II*) and three **ONT** protocols (Rapid Sequencing and Ligation Sequencing with and without fragmentation step) in order to compare genome assemblies. We will make use of this dataset in order to explore sequencing data produced by the different approaches.
 
