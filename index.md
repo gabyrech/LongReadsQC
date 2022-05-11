@@ -19,7 +19,7 @@ There are seveal **really good** free on-line tutorials that introduce Unix and 
 3. [HadrienG Tutorial on Command Line](https://www.hadriengourle.com/tutorials/command_line/)
 
 ### I don't have Unix, what do I do?
-In case you don’t work under Linux already, e.g. you have a Windows laptop, or don’t want to install all the tools yourself this page gives detailed instructions on how to set up a tutorial environment on any computer using VirtualBox:
+In case you don’t work under Linux already, e.g. you have a Windows machine, one of the easiest way to start is by setting up a virtual machine with one of the most widely used Unix distributions: **Ubuntu**. This page gives detailed instructions on how to set up an Ubuntu environment in any computer using VirtualBox:
 
 [Install Ubuntu using a VM](https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview) 
 
