@@ -253,9 +253,16 @@ Among different tools **NanoPack** offers, we will use two that are very helpful
 - [**NanoComp**](https://github.com/wdecoster/nanocomp): Compares multiple runs on read length and quality based on reads (fastq), alignments (bam) or albasecaller bacore summary files.
 
 
+### NanoPlot
 
 
 
+
+
+
+
+
+### NanoComp
 
 ```markdown
 $ NanoComp --help
@@ -334,9 +341,9 @@ You can go ahead and give a try to **NanoComp** using the [sampleData.tar](https
 ```
 $ NanoComp -t 8 --fastq sampleData/ONTRapid.fastq.gz \
   sampleData/ONTLIG.fastq.gz sampleData/ONTLIGnoFrag.fastq.gz \
-   sampleData/PacBioRSII.fastq.gz sampleData/PacBioCLR.fastq.gz \
-   sampleData/PacBioHiFi.fastq.gz -o NanoCompSampleData \
-   --names ONTRapid ONTLIG ONTLIGnoFrag PacBioRSII PacBioCLR PacBioHiFi
+  sampleData/PacBioRSII.fastq.gz sampleData/PacBioCLR.fastq.gz \
+  sampleData/PacBioHiFi.fastq.gz -o NanoCompSampleData \
+  --names ONTRapid ONTLIG ONTLIGnoFrag PacBioRSII PacBioCLR PacBioHiFi
 ```
 
 I run **NanoComp** for the full set of sequences downloaded from SRA using this command:
