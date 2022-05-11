@@ -30,7 +30,7 @@ Tools needed for this tutorial and the instructions for installing them are:
 - **pycoQC**: [https://a-slide.github.io/pycoQC/](https://a-slide.github.io/pycoQC/)
 
 ### Data Set
-For this tutorial we will use data published by Tvedte *et al.* 2021:
+For this tutorial we will use data published by [Tvedte *et al.* 2021](https://academic.oup.com/g3journal/article/11/6/jkab083/6188627):
 
 > Eric S Tvedte, Mark Gasser, Benjamin C Sparklin, Jane Michalski, Carl E Hjelmen, J Spencer Johnston, Xuechu Zhao, Robin Bromley, Luke J Tallon, Lisa Sadzewicz, David A Rasko, Julie C Dunning Hotopp, *Comparison of long-read sequencing technologies in interrogating bacteria and fly genomes*, **G3**,11, 6, 2021, https://doi.org/10.1093/g3journal/jkab083.
 
@@ -46,6 +46,9 @@ Organism|Library|SRA accession
 *E. coli*|PacBio RS II|SRR11434956 
 *E. coli*|Pacbio Sequel II CLR|SRR11434960 
 *E. coli*|Pacbio Sequel II HiFi|SRR11434954 
+
+#### Toy dataset:
+I have prepared a toy dataset from these six libraries by randomly subsampling 10,000 reads from each. You can use this dataset to rund this tutorial. You can download here: [sampleData.tar](https://thejacksonlaboratory.box.com/s/9ny2zvx3pby1yp3b775c9jraik9jerzp) 
 
 If you want to download the full data set, you can use [SRAToolkit](https://github.com/ncbi/sra-tools), specifically commands **prefetch** and **fastq-dump** as follow:
 
@@ -69,8 +72,6 @@ SRR11434956
 SRR11434960
 SRR11434954
 ```
-
-[Data:](https://thejacksonlaboratory.box.com/s/9ny2zvx3pby1yp3b775c9jraik9jerzp) 
 
 
 ------------------
