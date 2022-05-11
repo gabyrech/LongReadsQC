@@ -72,6 +72,69 @@ SRR11434956
 SRR11434960
 SRR11434954
 ```
+You can use the same strategy for extracting the fastq files from the prefetched Runs in compressed SRA format using **fastq-dump**:
+
+```markdown
+$ fastq-dump --gzip $(<SraAccList.txt)
+```
+------------------
+## Quick QC overview using SeqKit
+
+
+```markdown
+$ seqkit
+SeqKit -- a cross-platform and ultrafast toolkit for FASTA/Q file manipulation
+
+Version: 0.14.0
+
+Author: Wei Shen <shenwei356@gmail.com>
+
+Documents  : http://bioinf.shenwei.me/seqkit
+Source code: https://github.com/shenwei356/seqkit
+Please cite: https://doi.org/10.1371/journal.pone.0163962
+
+Usage:
+  seqkit [command]
+
+Available Commands:
+  amplicon        retrieve amplicon (or specific region around it) via primer(s)
+  bam             monitoring and online histograms of BAM record features
+  common          find common sequences of multiple files by id/name/sequence
+  concat          concatenate sequences with same ID from multiple files
+  convert         convert FASTQ quality encoding between Sanger, Solexa and Illumina
+  duplicate       duplicate sequences N times
+  faidx           create FASTA index file and extract subsequence
+  fish            look for short sequences in larger sequences using local alignment
+  fq2fa           convert FASTQ to FASTA
+  fx2tab          convert FASTA/Q to tabular format (with length/GC content/GC skew)
+  genautocomplete generate shell autocompletion script
+  grep            search sequences by ID/name/sequence/sequence motifs, mismatch allowed
+  head            print first N FASTA/Q records
+  help            Help about any command
+  locate          locate subsequences/motifs, mismatch allowed
+  mutate          edit sequence (point mutation, insertion, deletion)
+  pair            match up paired-end reads from two fastq files
+  range           print FASTA/Q records in a range (start:end)
+  rename          rename duplicated IDs
+  replace         replace name/sequence by regular expression
+  restart         reset start position for circular genome
+  rmdup           remove duplicated sequences by id/name/sequence
+  sample          sample sequences by number or proportion
+  sana            sanitize broken single line fastq files
+  scat            real time recursive concatenation and streaming of fastx files
+  seq             transform sequences (revserse, complement, extract ID...)
+  shuffle         shuffle sequences
+  sliding         sliding sequences, circular genome supported
+  sort            sort sequences by id/name/sequence/length
+  split           split sequences into files by id/seq region/size/parts (mainly for FASTA)
+  split2          split sequences into files by size/parts (FASTA, PE/SE FASTQ)
+  stats           simple statistics of FASTA/Q files
+  subseq          get subsequences by region/gtf/bed, including flanking sequences
+  tab2fx          convert tabular format to FASTA/Q format
+  translate       translate DNA/RNA to protein sequence (supporting ambiguous bases)
+  version         print version information and check for update
+  watch           monitoring and online histograms of sequence features
+```
 
 
 ------------------
