@@ -78,7 +78,11 @@ You can use the same strategy for extracting the fastq files from the prefetched
 $ fastq-dump --gzip $(<SraAccList.txt)
 ```
 ------------------
+
 ## Quick QC overview using SeqKit
+
+**SeqKit** is an easy-to-install and easy-to-use toolkit for FASTA/Q file manipulation. 
+Contain more than 37 commands [usages and examples](https://bioinf.shenwei.me/seqkit/#subcommands)
 
 
 ```markdown
@@ -135,6 +139,29 @@ Available Commands:
   version         print version information and check for update
   watch           monitoring and online histograms of sequence features
 ```
+
+Among the many commands, we can use **_stats_** for obtaining simple statistics of FASTA/Q files. This could be our first approach to determining the quality of the sequencing data:
+
+Assuming you downloaded the [sampleData.tar](https://thejacksonlaboratory.box.com/s/9ny2zvx3pby1yp3b775c9jraik9jerzp) file and extracted the fastq files in to the directory sampleData/:
+
+```markdown
+/full/path/to/data/sampleData$ ls
+ONTLIG.fastq.gz        ONTRapid.fastq.gz   PacBioHiFi.fastq.gz
+ONTLIGnoFrag.fastq.gz  PacBioCLR.fastq.gz  PacBioRSII.fastq.gz
+```
+You can run:
+
+```markdown
+/full/path/to/data/sampleData$ seqkit stats --all --basename --tabular *
+file	format	type	num_seqs	sum_len	min_len	avg_len	max_len	Q1	Q2	Q3	sum_gap	N50	Q20(%)	Q30(%)
+ONTLIG.fastq.gz	FASTQ	DNA	10000	116811938	112	11681.2	122683	3530.0	5780.0	15452.0	0	22534	27.79	0.00
+ONTLIGnoFrag.fastq.gz	FASTQ	DNA	10000	101400610	136	10140.1	248649	633.5	1609.57184.0	0	47119	17.97	6.38
+ONTRapid.fastq.gz	FASTQ	DNA	10000	93959361	95	9395.9	206567	1482.5	4341.511488.0	0	20663	29.42	0.67
+PacBioCLR.fastq.gz	FASTQ	DNA	10000	190168507	50	19016.9	103956	4615.0	14264.5	29390.0	0	33064	0.00	0.00
+PacBioHiFi.fastq.gz	FASTQ	DNA	10000	129214761	1473	12921.5	18862	12292.5	12880.0	13535.5	0	12947	98.40	96.19
+PacBioRSII.fastq.gz	FASTQ	DNA	10000	170749124	6	17074.9	57233	7802.0	17318.5	25082.5	0	24059	0.00	0.00
+```
+Note: In my command I use the '*' aterisk (also called star) character insthead of the full file names. The asterisk is wildcard character, which is replaced by any number of characters in a filename. In this way, I am telling SeqKit to parse all files in that directory, instead of typing all file names. 
 
 
 ------------------
