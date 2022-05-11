@@ -331,15 +331,23 @@ EXAMPLES:
 ```
 You can go ahead and give a try to **NanoComp** using the [sampleData.tar](https://thejacksonlaboratory.box.com/s/9ny2zvx3pby1yp3b775c9jraik9jerzp) dataset. The command should be something like this:
 
-`
-$ NanoComp -t 8 --fastq sampleData/ONTRapid.fastq.gz sampleData/ONTLIG.fastq.gz sampleData/ONTLIGnoFrag.fastq.gz sampleData/PacBioRSII.fastq.gz sampleData/PacBioCLR.fastq.gz sampleData/PacBioHiFi.fastq.gz -o NanoCompSampleData --names ONTRapid ONTLIG ONTLIGnoFrag PacBioRSII PacBioCLR PacBioHiFi
-`
+```
+$ NanoComp -t 8 --fastq sampleData/ONTRapid.fastq.gz \
+  sampleData/ONTLIG.fastq.gz sampleData/ONTLIGnoFrag.fastq.gz \
+   sampleData/PacBioRSII.fastq.gz sampleData/PacBioCLR.fastq.gz \
+   sampleData/PacBioHiFi.fastq.gz -o NanoCompSampleData \
+   --names ONTRapid ONTLIG ONTLIGnoFrag PacBioRSII PacBioCLR PacBioHiFi
+```
 
 I run **NanoComp** for the full set of sequences downloaded from SRA using this command:
 
-`
-$ NanoComp -t 8 --fastq SRR11523179/SRR11523179.fastq.gz SRR11434959/SRR11434959.fastq.gz SRR12801740/SRR12801740.fastq.gz SRR11434956/SRR11434956.fastq.gz SRR11434960/SRR11434960.fastq.gz SRR11434954/SRR11434954.fastq.gz -o NanoCompBox --names ONTRapid ONTLIG ONTLIGnoFrag PacBioRSII PacBioCLR PacBioHiFi --plot 'box' --dpi 80
-`
+```
+$ NanoComp -t 8 --fastq SRR11523179/SRR11523179.fastq.gz \
+  SRR11434959/SRR11434959.fastq.gz SRR12801740/SRR12801740.fastq.gz \
+  SRR11434956/SRR11434956.fastq.gz SRR11434960/SRR11434960.fastq.gz \
+  SRR11434954/SRR11434954.fastq.gz -o NanoCompBox \
+  --names ONTRapid ONTLIG ONTLIGnoFrag PacBioRSII PacBioCLR PacBioHiFi --plot 'box' --dpi 80
+```
 
 **You can check the results here:** [NanoComp Results for fastq files download from SRA](https://htmlpreview.github.io/?https://github.com/gabyrech/LongReadsQC/blob/gh-pages/NanoCompBox/NanoComp-report.html)
 
