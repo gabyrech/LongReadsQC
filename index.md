@@ -1,5 +1,7 @@
-# Welcome! 
-This page cotains tutorial for basic Quality Control (QC) of Long-Read sequencing data, primarily data produced by Oxford Nanopore Tenchnologies (ONT) and Pacific Biosciences (PacBio). The material was initially created for the Computational Sessions of the [2022 JAX Long Read Sequencing Workshop ](https://www.jax.org/education-and-learning/education-calendar/2022/may/long-read-sequencing-workshop) but I will try to keep it updated with new methods/strategies.
+# Basic long-read sequencing QC 
+
+## Welcome! 
+This page cotains tutorial for basic Quality Control (QC) of Long-Read sequencing data, primarily data produced by Oxford Nanopore Tenchnologies (**ONT**) and Pacific Biosciences (**PacBio**). The material was initially created for the Computational Sessions of the [2022 JAX Long Read Sequencing Workshop ](https://www.jax.org/education-and-learning/education-calendar/2022/may/long-read-sequencing-workshop) but I will try to keep it updated with new methods/strategies.
 
 ## Tutorial Set Up
 
@@ -13,9 +15,9 @@ Unix is the standard operating system used in scientific research. In fact, most
 
 There are seveal **really good** free on-line tutorials that introduce Unix and cover some of the basics that will allow you to be more comfortable with the command-line, here some of them:
 
-[Software Carpentry Foundation Shell Novice Course](https://swcarpentry.github.io/shell-novice/)
-[Bioinformatics Workbook](https://bioinformaticsworkbook.org/Appendix/Unix/unix-basics-1.html#gsc.tab=0)
-[HadrienG Tutorials](https://www.hadriengourle.com/tutorials/command_line/)
+1. [Software Carpentry Foundation Shell Novice Course](https://swcarpentry.github.io/shell-novice/)
+2. [Bioinformatics Workbook Unix Basics](https://bioinformaticsworkbook.org/Appendix/Unix/unix-basics-1.html#gsc.tab=0)
+3. [HadrienG Tutorial on Command Line](https://www.hadriengourle.com/tutorials/command_line/)
 
 ### I don't have Unix, what do I do?
 In case you don’t work under Linux already, e.g. you have a Windows laptop, or don’t want to install all the tools yourself this page gives detailed instructions on how to set up a tutorial environment on any computer using VirtualBox:
@@ -24,10 +26,52 @@ In case you don’t work under Linux already, e.g. you have a Windows laptop, or
 
 ### Tools
 Tools needed for this tutorial and the instructions for installing them are:
-- **SeqKik**: [https://bioinf.shenwei.me/seqkit/](https://bioinf.shenwei.me/seqkit/)
 
+- **SeqKik**: [https://bioinf.shenwei.me/seqkit/](https://bioinf.shenwei.me/seqkit/)
+- **SeqFu**: [https://telatin.github.io/seqfu2/](https://telatin.github.io/seqfu2/)
+- **NanoPack**:[https://github.com/wdecoster/nanopack](https://github.com/wdecoster/nanopack)
+- **pycoQC**: [https://a-slide.github.io/pycoQC/](https://a-slide.github.io/pycoQC/)
 
 ### Data Set
+For this tutorial we will use data published by Tvedte *et al.* 2021:
+
+> Eric S Tvedte, Mark Gasser, Benjamin C Sparklin, Jane Michalski, Carl E Hjelmen, J Spencer Johnston, Xuechu Zhao, Robin Bromley, Luke J Tallon, Lisa Sadzewicz, David A Rasko, Julie C Dunning Hotopp, Comparison of long-read sequencing technologies in interrogating bacteria and fly genomes, G3 Genes|Genomes|Genetics, Volume 11, Issue 6, June 2021, jkab083, https://doi.org/10.1093/g3journal/jkab083
+
+In this work, authors performed whole-genome sequencing of the bacteria *Escherichia coli* using three different **PacBio** protocols (*Sequel II CLR, Sequel II HiFi, RS II*) and three **ONT** protocols (Rapid Sequencing and Ligation Sequencing with and without fragmentation step) in order to compare genome assemblies. We will make use of this dataset in order to explore sequencing data produced by the different approaches.
+
+**NOTE**: There are several parameters and steps that migth affect sequencing results (e.g. DNA extraction, library preparation, sequencing instruments, versions of programs used in the analysis, version of library kits, etc.) Results obtained by Tvedte *et al.* 2021 migth no **NOT** be generalizable to other sequencing experiments in term of yield, quality and read length!!!
+
+Organism|Library|SRA accession
+-------|---------|-------------
+*E. coli*|ONT RAPID|SRR11523179 
+*E. coli*|ONT LIG|SRR11434959
+*E. coli*|ONT LIG noFrag|SRR12801740 
+*E. coli*|PacBio RS II|SRR11434956 
+*E. coli*|Pacbio Sequel II CLR|SRR11434960 
+*E. coli*|Pacbio Sequel II HiFi|SRR11434954 
+
+If you want to download the full data set, you can use [SRAToolkit](https://github.com/ncbi/sra-tools), specifically commands **prefetch** and **fastq-dump** as follow:
+
+```markdown
+$ prefetch SRR11523179
+$ fastq-dump --gzip --outdir SRR11523179 SRR11523179/SRR11523179.sra
+```
+
+Little trick: You can download all SRA accessions at once using:
+```markdown
+$ prefetch $(<SraAccList.txt)
+```
+Where *SraAccList.txt* is a text file containing all SRA accessions, one per line:
+
+```markdown
+$ cat SraAccList.txt
+SRR11523179
+SRR11434959
+SRR12801740
+SRR11434956
+SRR11434960
+SRR11434954
+```
 
 
 
