@@ -1,0 +1,29 @@
+2022-05-07 18:54:18,068 NanoComp 1.13.0 started with arguments Namespace(bam=None, barcoded=False, colors=None, cram=None, dpi=80, fasta=None, fastq=['SRR11523179/SRR11523179.fastq.gz', 'SRR11434959/SRR11434959.fastq.gz', 'SRR12801740/SRR12801740.fastq.gz', 'SRR11434956/SRR11434956.fastq.gz', 'SRR11434960/SRR11434960.fastq.gz', 'SRR11434954/SRR11434954.fastq.gz'], feather=None, format='png', maxlength=None, minlength=None, names=['ONTRapid', 'ONTLIG', 'ONTLIGnoFrag', 'PacBioRSII', 'PacBioCLR', 'PacBioHiFi'], outdir='NanoCompBox', path='NanoCompBox/', pickle=None, plot='box', prefix='', raw=False, readtype='1D', split_runs=False, store=False, summary=None, threads=8, title=None, tsv_stats=False, ubam=None, verbose=False)
+2022-05-07 18:54:18,068 Python version is: 3.6.12 |Anaconda, Inc.| (default, Sep  8 2020, 23:10:56)  [GCC 7.3.0]
+2022-05-07 18:54:18,070 Nanoplotter: valid output format png
+2022-05-07 18:54:18,121 Nanoget: Starting to collect statistics from plain fastq file.
+2022-05-07 18:54:18,122 Nanoget: Starting to collect statistics from plain fastq file.
+2022-05-07 18:54:18,122 Nanoget: Starting to collect statistics from plain fastq file.
+2022-05-07 18:54:18,122 Nanoget: Starting to collect statistics from plain fastq file.
+2022-05-07 18:54:18,123 Nanoget: Starting to collect statistics from plain fastq file.
+2022-05-07 18:54:18,123 Nanoget: Decompressing gzipped fastq SRR11523179/SRR11523179.fastq.gz
+2022-05-07 18:54:18,123 Nanoget: Starting to collect statistics from plain fastq file.
+2022-05-07 18:54:18,124 Nanoget: Decompressing gzipped fastq SRR11434959/SRR11434959.fastq.gz
+2022-05-07 18:54:18,124 Nanoget: Decompressing gzipped fastq SRR11434956/SRR11434956.fastq.gz
+2022-05-07 18:54:18,125 Nanoget: Decompressing gzipped fastq SRR12801740/SRR12801740.fastq.gz
+2022-05-07 18:54:18,125 Nanoget: Decompressing gzipped fastq SRR11434960/SRR11434960.fastq.gz
+2022-05-07 18:54:18,126 Nanoget: Decompressing gzipped fastq SRR11434954/SRR11434954.fastq.gz
+2022-05-07 18:54:58,563 Reduced DataFrame memory usage from 0.71026611328125Mb to 0.4735107421875Mb
+2022-05-07 18:55:52,410 Reduced DataFrame memory usage from 2.2270431518554688Mb to 1.4846954345703125Mb
+2022-05-07 18:57:43,025 Reduced DataFrame memory usage from 3.7417144775390625Mb to 2.494476318359375Mb
+2022-05-07 19:13:29,959 Reduced DataFrame memory usage from 31.366287231445312Mb to 20.910858154296875Mb
+2022-05-07 19:24:59,866 Reduced DataFrame memory usage from 40.94995880126953Mb to 23.887475967407227Mb
+2022-05-07 20:05:57,503 Reduced DataFrame memory usage from 77.45201110839844Mb to 51.634674072265625Mb
+2022-05-07 20:05:58,123 Nanoget: Gathered all metrics of 6835286 reads
+2022-05-07 20:05:58,126 Using sequenced read lengths for plotting.
+2022-05-07 20:06:03,753 NanoComp: Creating barplots for number of reads and total throughput.
+2022-05-07 20:06:09,037 NanoComp: Creating box plot for lengths.
+2022-05-07 20:06:10,719 NanoComp: Creating box plot for log length.
+2022-05-07 20:06:12,147 NanoComp: Creating box plot for quals.
+2022-05-07 20:06:46,944 Writing html report.
+2022-05-07 20:06:48,897 Succesfully processed all input.
