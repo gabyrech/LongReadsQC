@@ -236,7 +236,38 @@ Few things to highligth regarding **SeqFu** vs. **SeqKit**:
 1. **SeqFu** parameter _--nice_ makes stats looking much better than the _--tabular_ in **SeqKit**.
 2. **SeqFu** also calculates N75 and N90, which in some cases migth be useful. 
 3. **SeqFu** does not provide Quality stats (e.g. Q20% / Q30%). In theory, **SeqFu** provides another command [_qual_](https://telatin.github.io/seqfu2/tools/qual.html) to sumarize quality scores, but it did not work for me.
-4. **SeqFu** provides another interesting statistics for read length called **auN**. auN is probably more interesting in the context of genome assembly. You can learn more about this measure [here](https://lh3.github.io/2020/04/08/a-new-metric-on-assembly-contiguity).
+4. **SeqFu** provides another interesting statistics based on the length of sequences called **auN**. auN is probably more interesting in the context of genome assembly. You can learn more about this measure [here](https://lh3.github.io/2020/04/08/a-new-metric-on-assembly-contiguity).
+
+
+
+------------------
+
+## Comprehensive sequence evaluation using NanoPack
+
+[**NanoPack**](https://github.com/wdecoster/nanopack) is a set of tools for visualization and processing of long-read sequencing data from Oxford Nanopore Technologies and Pacific Biosciences.
+
+Among different tools **NanoPack** offers, we will use two that are very helpful for long-read QC: **NanoPlot** and **NanoComp**
+
+- [**NanoPlot**](https://github.com/wdecoster/NanoPlot): Creates many relevant plots derived from reads (fastq), alignments (bam) and basecaller summary files. 
+
+- [**NanoComp**](https://github.com/wdecoster/nanocomp): Compares multiple runs on read length and quality based on reads (fastq), alignments (bam) or albasecaller bacore summary files.
+
+
+
+
+
+
+------------------
+
+## Comprehensive sequence evaluation using pycoQC
+
+[**pycoQC**](https://a-slide.github.io/pycoQC/)
+
+
+
+
+
+
 
 ------------------
 ## FORMAT
