@@ -32,6 +32,8 @@ There are seveal **really good** free on-line tutorials that introduce Unix and 
 ### I don't have Unix, what do I do? <a name="DONTHAVE"></a>
 In case you don’t work under any Unix distribution already, e.g. you have a Windows machine, one of the easiest way to start is by setting up a virtual machine with one of the most widely used Unix distributions: **Ubuntu**. This page gives detailed instructions on how to set up an Ubuntu environment in any computer using VirtualBox: [Install Ubuntu using a VM](https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview) 
 
+[Table of Contents](#TABLE)
+
 ### Tools
 Tools needed for this tutorial and the instructions for installing them are:
 
@@ -39,6 +41,8 @@ Tools needed for this tutorial and the instructions for installing them are:
 - **SeqFu**: [https://telatin.github.io/seqfu2/](https://telatin.github.io/seqfu2/)
 - **NanoPack**:[https://github.com/wdecoster/nanopack](https://github.com/wdecoster/nanopack)
 - **pycoQC**: [https://a-slide.github.io/pycoQC/](https://a-slide.github.io/pycoQC/)
+
+[Table of Contents](#TABLE)
 
 ### Data Set
 For this tutorial we will use data published by [Tvedte *et al.* 2021](https://academic.oup.com/g3journal/article/11/6/jkab083/6188627):
@@ -57,6 +61,8 @@ Organism|Library|SRA accession
 *E. coli*|PacBio RS II|SRR11434956 
 *E. coli*|Pacbio Sequel II CLR|SRR11434960 
 *E. coli*|Pacbio Sequel II HiFi|SRR11434954 
+
+[Table of Contents](#TABLE)
 
 #### Toy dataset:
 I have prepared a toy dataset from these six libraries by randomly subsampling 10,000 reads from each. You can use this dataset to rund this tutorial. You can download here: [sampleData.tar](https://thejacksonlaboratory.box.com/s/9ny2zvx3pby1yp3b775c9jraik9jerzp) 
@@ -88,6 +94,8 @@ You can use the same strategy for extracting the fastq files from the prefetched
 ```markdown
 $ fastq-dump --gzip $(<SraAccList.txt)
 ```
+[Table of Contents](#TABLE)
+
 ------------------
 
 ## Quick QC overview using SeqKit
@@ -193,6 +201,7 @@ N50: Length of the shortest sequence for which longer and equal length sequences
 Q20(%): Percentage of reads with average Quality Phred Score grater or equal to 20. 
 Q30(%): Percentage of reads with average Quality Phred Score grater or equal to 30. 
 ```
+[Table of Contents](#TABLE)
 
 ------------------
 
@@ -249,7 +258,7 @@ Few things to highligth regarding **SeqFu** vs. **SeqKit**:
 3. **SeqFu** does not provide Quality stats (e.g. Q20% / Q30%). In theory, **SeqFu** provides another command [_qual_](https://telatin.github.io/seqfu2/tools/qual.html) to sumarize quality scores, but it did not work for me.
 4. **SeqFu** provides another interesting statistics based on the length of sequences called **auN**. auN is probably more interesting in the context of genome assembly. You can learn more about this measure [here](https://lh3.github.io/2020/04/08/a-new-metric-on-assembly-contiguity).
 
-
+[Table of Contents](#TABLE)
 
 ------------------
 
