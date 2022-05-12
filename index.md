@@ -2,7 +2,7 @@
 
 This page cotains a tutorial for basic Quality Control (QC) of Long-Read sequencing data, mainly oriented to data produced by Oxford Nanopore Tenchnologies (**ONT**) and Pacific Biosciences (**PacBio**). The material was initially created for the Computational Sessions of the [2022 JAX Long Read Sequencing Workshop ](https://www.jax.org/education-and-learning/education-calendar/2022/may/long-read-sequencing-workshop) but I will try to keep it updated with new methods/strategies.
 
-## **Table of Contents** 
+## **Table of Contents** <a name="TABLE"></a>
 
 [**Tutorial Set Up**](#SETUP)
 + [**Unix**](#UNIX)
@@ -25,6 +25,9 @@ There are seveal **really good** free on-line tutorials that introduce Unix and 
 1. [Software Carpentry Foundation Shell Novice Course](https://swcarpentry.github.io/shell-novice/)
 2. [Bioinformatics Workbook Unix Basics](https://bioinformaticsworkbook.org/Appendix/Unix/unix-basics-1.html#gsc.tab=0)
 3. [HadrienG Tutorial on Command Line](https://www.hadriengourle.com/tutorials/command_line/)
+
+[Table of Contents](#TABLE)
+
 
 ### I don't have Unix, what do I do? <a name="DONTHAVE"></a>
 In case you don’t work under any Unix distribution already, e.g. you have a Windows machine, one of the easiest way to start is by setting up a virtual machine with one of the most widely used Unix distributions: **Ubuntu**. This page gives detailed instructions on how to set up an Ubuntu environment in any computer using VirtualBox: [Install Ubuntu using a VM](https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview) 
