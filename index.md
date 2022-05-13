@@ -7,6 +7,18 @@ This page cotains a tutorial for basic Quality Control (QC) of Long-Read sequenc
 [**Tutorial Set Up**](#SETUP)
 + [**Unix**](#UNIX)
 + [**I don't have Unix, what do I do?**](#DONTHAVE)
++ [**Tools**](#TOOLS)
++ [**Data Set**](#DATA)
++ +[**Toy dataset**](#TOYDATA)
++ [**Quick QC overview using SeqKit**](#SEQKIT)
++ [**Quick QC overview using SeqFu**](#SEQFU)
++ [**Comprehensive sequence evaluation using NanoPack**](#NANOPACK)
++ +[**NanoPlot**](#NANOPLOT)
++ +[**NanoComp**](#NANOCOMP)
++ [**Comprehensive sequence evaluation using pycoQC**](#PYCOQC)
+
+
+
 
 ------------------
 
@@ -34,7 +46,7 @@ In case you don’t work under any Unix distribution already, e.g. you have a Wi
 
 [Table of Contents](#TABLE)
 
-### Tools
+### Tools <a name="TOOLS"></a>
 Tools needed for this tutorial and the instructions for installing them are:
 
 - **SeqKit**: [https://bioinf.shenwei.me/seqkit/](https://bioinf.shenwei.me/seqkit/)
@@ -44,7 +56,7 @@ Tools needed for this tutorial and the instructions for installing them are:
 
 [Table of Contents](#TABLE)
 
-### Data Set
+### Data Set <a name="DATA"></a>
 For this tutorial we will use data published by [Tvedte *et al.* 2021](https://academic.oup.com/g3journal/article/11/6/jkab083/6188627):
 
 > Eric S Tvedte, Mark Gasser, Benjamin C Sparklin, Jane Michalski, Carl E Hjelmen, J Spencer Johnston, Xuechu Zhao, Robin Bromley, Luke J Tallon, Lisa Sadzewicz, David A Rasko, Julie C Dunning Hotopp, *Comparison of long-read sequencing technologies in interrogating bacteria and fly genomes*, **G3**,11, 6, 2021, https://doi.org/10.1093/g3journal/jkab083.
@@ -64,7 +76,7 @@ Organism|Library|SRA accession
 
 [Table of Contents](#TABLE)
 
-#### Toy dataset:
+#### Toy dataset:  <a name="TOYDATA"></a>
 I have prepared a toy dataset from these six libraries by randomly subsampling 10,000 reads from each. You can use this dataset to rund this tutorial. You can download here: [sampleData.tar](https://thejacksonlaboratory.box.com/s/9ny2zvx3pby1yp3b775c9jraik9jerzp) 
 
 If you want to download the full data set, you can use [SRAToolkit](https://github.com/ncbi/sra-tools), specifically commands **prefetch** and **fastq-dump** as follow:
@@ -98,7 +110,7 @@ $ fastq-dump --gzip $(<SraAccList.txt)
 
 ------------------
 
-## Quick QC overview using SeqKit
+## Quick QC overview using SeqKit <a name="SEQKIT"></a>
 
 [**SeqKit**](https://bioinf.shenwei.me/seqkit/) is an easy-to-install and easy-to-use toolkit for FASTA/Q file manipulation. 
 Contain more than 37 commands [usages and examples](https://bioinf.shenwei.me/seqkit/#subcommands)
@@ -205,7 +217,7 @@ Q30(%): Percentage of reads with average Quality Phred Score grater or equal to 
 
 ------------------
 
-## Quick QC overview using SeqFu
+## Quick QC overview using SeqFu <a name="SEQFU"></a>
 
 [**SeqFu**](https://telatin.github.io/seqfu2/) is another general-purpose program to manipulate and parse information from FASTA/FASTQ files. In many ways is similar to SeqKit, but SeqFu author's claim their tool is four times faster than SeqKit on datasets with large sequences ([Telatin et al 2021](https://www.mdpi.com/2306-5354/8/5/59/htm)).
 
@@ -262,7 +274,7 @@ Few things to highligth regarding **SeqFu** vs. **SeqKit**:
 
 ------------------
 
-## Comprehensive sequence evaluation using NanoPack
+## Comprehensive sequence evaluation using NanoPack <a name="NANOPACK"></a>
 
 [**NanoPack**](https://github.com/wdecoster/nanopack) is a set of tools for visualization and processing of long-read sequencing data from Oxford Nanopore Technologies and Pacific Biosciences.
 
@@ -273,7 +285,7 @@ Among different tools **NanoPack** offers, we will use two that are very helpful
 - [**NanoComp**](https://github.com/wdecoster/nanocomp): Compares multiple runs on read length and quality based on reads (fastq), alignments (bam) or albasecaller bacore summary files.
 
 
-### NanoPlot
+### NanoPlot <a name="NANOPLOT"></a>
 
 
 ```markdown
@@ -382,7 +394,7 @@ $ NanoPlot --fastq sampleData/PacBioHiFi.fastq.gz --N50 -o NanoPlotPacBioHiFi
 You can check the results for sampled data [**ONTLIGnoFrag**](https://htmlpreview.github.io/?https://github.com/gabyrech/LongReadsQC/blob/gh-pages/NanoPlotONTLIGnoFrag-report.html) and [**PacBioHiFi**](https://htmlpreview.github.io/?https://github.com/gabyrech/LongReadsQC/blob/gh-pages/NanoPlotPacBioHiFi-report.html)
 
 
-### NanoComp
+### NanoComp <a name="NANOCOMP"></a>
 
 Use **NanoComp** if you want to compare statistics between different sets of sequences. You can use different input file formats (fastq, fasta, bam, summary files and more...)
 
@@ -487,7 +499,7 @@ $ NanoComp -t 8 --fastq SRR11523179/SRR11523179.fastq.gz \
 
 ------------------
 
-## Comprehensive sequence evaluation using pycoQC
+## Comprehensive sequence evaluation using pycoQC <a name="PYCOQC"></a>
 
 [**pycoQC**](https://a-slide.github.io/pycoQC/)
 
