@@ -255,7 +255,7 @@ The command we can use for sumarizing sequence stats is, again: **stats**:
 Few things to highligth regarding **SeqFu** vs. **SeqKit**:
 1. **SeqFu** parameter _--nice_ makes stats looking much better than the _--tabular_ in **SeqKit**.
 2. **SeqFu** also calculates N75 and N90, which in some cases migth be useful. 
-3. **SeqFu** does not provide Quality stats (e.g. Q20% / Q30%). In theory, **SeqFu** provides another command [_qual_](https://telatin.github.io/seqfu2/tools/qual.html) to sumarize quality scores, but it did not work for me.
+3. **SeqFu** does not provide Quality stats (e.g. Q20% / Q30%). In theory, **SeqFu** provides another command to sumarize quality scores: [_qual_](https://telatin.github.io/seqfu2/tools/qual.html), but it did not work for me.
 4. **SeqFu** provides another interesting statistics based on the length of sequences called **auN**. auN is probably more interesting in the context of genome assembly. You can learn more about this measure [here](https://lh3.github.io/2020/04/08/a-new-metric-on-assembly-contiguity).
 
 [Table of Contents](#TABLE)
@@ -276,13 +276,115 @@ Among different tools **NanoPack** offers, we will use two that are very helpful
 ### NanoPlot
 
 
+```markdown
+$ NanoPlot --help
 
+usage: NanoPlot [-h] [-v] [-t THREADS] [--verbose] [--store] [--raw] [--huge]
+                [-o OUTDIR] [-p PREFIX] [--tsv_stats] [--maxlength N]
+                [--minlength N] [--drop_outliers] [--downsample N]
+                [--loglength] [--percentqual] [--alength] [--minqual N]
+                [--runtime_until N] [--readtype {1D,2D,1D2}] [--barcoded]
+                [--no_supplementary] [-c COLOR] [-cm COLORMAP]
+                [-f {eps,jpeg,jpg,pdf,pgf,png,ps,raw,rgba,svg,svgz,tif,tiff}]
+                [--plots [{kde,hex,dot,pauvre} [{kde,hex,dot,pauvre} ...]]]
+                [--listcolors] [--listcolormaps] [--no-N50] [--N50]
+                [--title TITLE] [--font_scale FONT_SCALE] [--dpi DPI]
+                [--hide_stats]
+                (--fastq file [file ...] | --fasta file [file ...] | --fastq_rich file [file ...] | --fastq_minimal file [file ...] | --summary file [file ...] | --bam file [file ...] | --ubam file [file ...] | --cram file [file ...] | --pickle pickle | --feather file [file ...])
 
+CREATES VARIOUS PLOTS FOR LONG READ SEQUENCING DATA.
+
+General options:
+  -h, --help            show the help and exit
+  -v, --version         Print version and exit.
+  -t, --threads THREADS
+                        Set the allowed number of threads to be used by the script
+  --verbose             Write log messages also to terminal.
+  --store               Store the extracted data in a pickle file for future plotting.
+  --raw                 Store the extracted data in tab separated file.
+  --huge                Input data is one very large file.
+  -o, --outdir OUTDIR   Specify directory in which output has to be created.
+  -p, --prefix PREFIX   Specify an optional prefix to be used for the output files.
+  --tsv_stats           Output the stats file as a properly formatted TSV.
+
+Options for filtering or transforming input prior to plotting:
+  --maxlength N         Hide reads longer than length specified.
+  --minlength N         Hide reads shorter than length specified.
+  --drop_outliers       Drop outlier reads with extreme long length.
+  --downsample N        Reduce dataset to N reads by random sampling.
+  --loglength           Additionally show logarithmic scaling of lengths in plots.
+  --percentqual         Use qualities as theoretical percent identities.
+  --alength             Use aligned read lengths rather than sequenced length (bam mode)
+  --minqual N           Drop reads with an average quality lower than specified.
+  --runtime_until N     Only take the N first hours of a run
+  --readtype {1D,2D,1D2}
+                        Which read type to extract information about from summary. Options are 1D, 2D,
+                        1D2
+  --barcoded            Use if you want to split the summary file by barcode
+  --no_supplementary    Use if you want to remove supplementary alignments
+
+Options for customizing the plots created:
+  -c, --color COLOR     Specify a valid matplotlib color for the plots
+  -cm, --colormap COLORMAP
+                        Specify a valid matplotlib colormap for the heatmap
+  -f, --format {eps,jpeg,jpg,pdf,pgf,png,ps,raw,rgba,svg,svgz,tif,tiff}
+                        Specify the output format of the plots.
+  --plots [{kde,hex,dot,pauvre} [{kde,hex,dot,pauvre} ...]]
+                        Specify which bivariate plots have to be made.
+  --listcolors          List the colors which are available for plotting and exit.
+  --listcolormaps       List the colors which are available for plotting and exit.
+  --no-N50              Hide the N50 mark in the read length histogram
+  --N50                 Show the N50 mark in the read length histogram
+  --title TITLE         Add a title to all plots, requires quoting if using spaces
+  --font_scale FONT_SCALE
+                        Scale the font of the plots by a factor
+  --dpi DPI             Set the dpi for saving images
+  --hide_stats          Not adding Pearson R stats in some bivariate plots
+
+Input data sources, one of these is required.:
+  --fastq file [file ...]
+                        Data is in one or more default fastq file(s).
+  --fasta file [file ...]
+                        Data is in one or more fasta file(s).
+  --fastq_rich file [file ...]
+                        Data is in one or more fastq file(s) generated by albacore, MinKNOW or guppy
+                        with additional information concerning channel and time.
+  --fastq_minimal file [file ...]
+                        Data is in one or more fastq file(s) generated by albacore, MinKNOW or guppy
+                        with additional information concerning channel and time. Is extracted swiftly
+                        without elaborate checks.
+  --summary file [file ...]
+                        Data is in one or more summary file(s) generated by albacore or guppy.
+  --bam file [file ...]
+                        Data is in one or more sorted bam file(s).
+  --ubam file [file ...]
+                        Data is in one or more unmapped bam file(s).
+  --cram file [file ...]
+                        Data is in one or more sorted cram file(s).
+  --pickle pickle       Data is a pickle file stored earlier.
+  --feather file [file ...]
+                        Data is in one or more feather file(s).
+
+EXAMPLES:
+    NanoPlot --summary sequencing_summary.txt --loglength -o summary-plots-log-transformed
+    NanoPlot -t 2 --fastq reads1.fastq.gz reads2.fastq.gz --maxlength 40000 --plots hex dot
+    NanoPlot --color yellow --bam alignment1.bam alignment2.bam alignment3.bam --downsample 10000
+
+```
+
+Run examples for two of the libraries:
+
+```
+$ NanoPlot --fastq sampleData/ONTLIGnoFrag.fastq.gz --N50 -o NanoPlotONTLIGnoFrag
+$ NanoPlot --fastq sampleData/PacBioHiFi.fastq.gz --N50 -o NanoPlotPacBioHiFi
+```
 
 
 
 
 ### NanoComp
+
+Use **NanoComp** if you want to compare statistics between different sets of sequences. You can use different input file formats (fastq, fasta, bam, summary files and more...)
 
 ```markdown
 $ NanoComp --help
@@ -356,7 +458,8 @@ EXAMPLES:
     NanoComp --bam alignment1.bam alignment2.bam --outdir compare-runs
     NanoComp --fastq reads1.fastq.gz reads2.fastq.gz reads3.fastq.gz  --names run1 run2 run3
 ```
-You can go ahead and give a try to **NanoComp** using the [sampleData.tar](https://thejacksonlaboratory.box.com/s/9ny2zvx3pby1yp3b775c9jraik9jerzp) dataset. The command should be something like this:
+
+In our case, we can use the fastq files to compare these datasets. You can try to run **NanoComp** using the [sampleData.tar](https://thejacksonlaboratory.box.com/s/9ny2zvx3pby1yp3b775c9jraik9jerzp) dataset. The command should be something like this:
 
 ```
 $ NanoComp -t 8 --fastq sampleData/ONTRapid.fastq.gz \
@@ -380,7 +483,7 @@ $ NanoComp -t 8 --fastq SRR11523179/SRR11523179.fastq.gz \
 
 
 
-
+[Table of Contents](#TABLE)
 
 ------------------
 
