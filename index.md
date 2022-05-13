@@ -379,7 +379,7 @@ $ NanoPlot --fastq sampleData/ONTLIGnoFrag.fastq.gz --N50 -o NanoPlotONTLIGnoFra
 $ NanoPlot --fastq sampleData/PacBioHiFi.fastq.gz --N50 -o NanoPlotPacBioHiFi
 ```
 
-
+[**Results for PacBioHiFi:**](https://htmlpreview.github.io/?https://github.com/gabyrech/LongReadsQC/blob/gh-pages/NanoPlotPacBioHiFi-report.html)
 
 
 ### NanoComp
