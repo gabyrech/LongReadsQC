@@ -2,8 +2,5 @@ theme: jekyll-theme-cayman
 gems:
   - jekyll-octicons
 
-kramdown:
-  input: Kramdown
-
 title: Basics on long-read sequencing QC
 description: 
