@@ -526,7 +526,7 @@ pycoQC -f sequencing_summary.txt -a my_alignment.bam -o MyRunResults.html --quie
 ```
 
 Results:
-The above commands will generate a HTML file called MyRunResults.html. This will look something like (this)[https://a-slide.github.io/pycoQC/pycoQC/results/Guppy-2.3_basecall-1D_alignment-DNA.html]. 
+The above commands will generate a HTML file called MyRunResults.html. This will look something like [this](https://a-slide.github.io/pycoQC/pycoQC/results/Guppy-2.3_basecall-1D_alignment-DNA.html). 
 
 
 [Table of Contents](#TABLE)
