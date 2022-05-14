@@ -42,7 +42,7 @@ There are seveal **really good** free on-line tutorials that introduce Unix and 
 
 
 ### I don't have Unix, what do I do? <a name="DONTHAVE"></a>
-In case you don’t work under any Unix distribution already, e.g. you have a Windows machine, one of the easiest way to start is by setting up a virtual machine with one of the most widely used Unix distributions: **Ubuntu**. This page gives detailed instructions on how to set up an Ubuntu environment in any computer using VirtualBox: [Install Ubuntu using a VM](https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview) 
+In case you don’t work under any Unix distribution already, e.g. you have a Windows machine, one of the easiest ways to start is by setting up a virtual machine with one of the most widely used Unix distributions: **Ubuntu**. You can find detailed instructions on how to set up an Ubuntu environment in any computer using VirtualBox here: [Install Ubuntu using a VM](https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview) 
 
 [Table of Contents](#TABLE)
 
@@ -61,9 +61,9 @@ For this tutorial we will use data published by [Tvedte *et al.* 2021](https://a
 
 > Eric S Tvedte, Mark Gasser, Benjamin C Sparklin, Jane Michalski, Carl E Hjelmen, J Spencer Johnston, Xuechu Zhao, Robin Bromley, Luke J Tallon, Lisa Sadzewicz, David A Rasko, Julie C Dunning Hotopp, *Comparison of long-read sequencing technologies in interrogating bacteria and fly genomes*, **G3**,11, 6, 2021, https://doi.org/10.1093/g3journal/jkab083.
 
-In this work, authors performed whole-genome sequencing of the bacteria *Escherichia coli* using three different **PacBio** protocols (*Sequel II CLR, Sequel II HiFi, RS II*) and three **ONT** protocols (Rapid Sequencing and Ligation Sequencing with and without fragmentation step) in order to compare genome assemblies. We will make use of this dataset in order to explore sequencing data produced by the different approaches.
+In this work authors performed whole-genome sequencing of the bacteria *Escherichia coli* using three different **PacBio** protocols (*Sequel II CLR, Sequel II HiFi, RS II*) and three **ONT** protocols (Rapid Sequencing and Ligation Sequencing with and without fragmentation step) in order to compare genome assemblies. We will make use of this dataset in order to explore sequencing data produced by the different approaches.
 
-**NOTE**: There are several parameters and steps that migth affect sequencing results (e.g. DNA extraction, library preparation, sequencing instruments, versions of programs used in the analysis, version of library kits, etc.) Results obtained by Tvedte *et al.* 2021 migth no **NOT** be generalizable to other sequencing experiments in term of yield, quality and read length!!!
+**NOTE**: There are several parameters and steps that migth affect sequencing results (e.g. DNA extraction, library preparation, sequencing instruments, versions of programs used in the analysis, version of library kits, etc.) Results obtained by Tvedte *et al.* 2021 may **NOT** be generalizable to other sequencing experiments in term of yield, quality and read length!!!
 
 Organism|Library|SRA accession
 -------|---------|-------------
@@ -77,9 +77,9 @@ Organism|Library|SRA accession
 [Table of Contents](#TABLE)
 
 #### Toy dataset:  <a name="TOYDATA"></a>
-I have prepared a toy dataset from these six libraries by randomly subsampling 10,000 reads from each. You can use this dataset to rund this tutorial. You can download here: [sampleData.tar](https://thejacksonlaboratory.box.com/s/9ny2zvx3pby1yp3b775c9jraik9jerzp) 
+I have prepared a toy dataset from these six libraries by randomly subsampling 10,000 reads from each of them. You can use this dataset to rund this tutorial. Download here: [sampleData.tar](https://thejacksonlaboratory.box.com/s/9ny2zvx3pby1yp3b775c9jraik9jerzp) 
 
-If you want to download the full data set, you can use [SRAToolkit](https://github.com/ncbi/sra-tools), specifically commands **prefetch** and **fastq-dump** as follow:
+If you want, however, to download the full data set, you can for instance use [SRAToolkit](https://github.com/ncbi/sra-tools), specifically commands **prefetch** and **fastq-dump** as follow:
 
 ```markdown
 $ prefetch SRR11523179
