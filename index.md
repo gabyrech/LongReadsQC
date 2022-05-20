@@ -2,7 +2,7 @@
 
 This page cotains a tutorial for basic Quality Control (QC) of Long-Read sequencing data, mainly oriented to data produced by Oxford Nanopore Tenchnologies (**ONT**) and Pacific Biosciences (**PacBio**). The material was initially created for the Computational Sessions of the [2022 JAX Long Read Sequencing Workshop ](https://www.jax.org/education-and-learning/education-calendar/2022/may/long-read-sequencing-workshop) but I will try to keep it updated with new methods/strategies.
 
-[**Check the Slides here:**](https://github.com/gabyrech/LongReadsQC/blob/727b243bd8bf935f111b0b3b15ae780d018917d6/LRSW2022_CompBio_Intro_web.pdf)
+[**Check the Slides here!**](https://github.com/gabyrech/LongReadsQC/blob/727b243bd8bf935f111b0b3b15ae780d018917d6/LRSW2022_CompBio_Intro_web.pdf)
 
 
 ## **Table of Contents** <a name="TABLE"></a>
